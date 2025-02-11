@@ -1,0 +1,23 @@
+FROM node:20-alpine
+
+WORKDIR /usr/src/app
+
+# For Prisma to work
+RUN apk update \
+    && apk add --no-cache openssl \
+    && rm -rf /var/cache/apk/*
+
+COPY package*.json ./
+
+COPY prisma ./prisma/
+
+RUN npm ci
+
+COPY . .
+
+RUN chmod +x ./scripts/init.sh
+
+EXPOSE 3000
+
+CMD [ "sh", "-c", "npm run init && npm run dev" ]
+
