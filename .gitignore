@@ -19,3 +19,10 @@ yarn-error.log
 /packages/**/.npmignore
 /packages/**/LICENSE
 *.tsbuildinfo
+
+
+#artifacts
+dist
+
+.env
+.env.*
