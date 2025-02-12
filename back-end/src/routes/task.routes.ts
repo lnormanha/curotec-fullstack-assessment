@@ -31,7 +31,6 @@ router.put(
   "/:id",
   [
     body("title").optional().trim().isString(),
-    body("description").optional().isString(),
     body("startTime").optional().isISO8601(),
     body("completed").optional().isBoolean(),
     body("routineId").optional().isInt(),

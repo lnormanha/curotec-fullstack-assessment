@@ -1,7 +1,7 @@
 export interface ITask {
   id: number;
   title: string;
-  startTime: Date;
+  startTime: string;
   completed: boolean;
   routineId: number;
   createdAt: Date;
