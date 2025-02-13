@@ -40,7 +40,7 @@ export const RoutineCard: React.FC<RoutineCardProps> = ({
   onCheckTask,
 }) => {
   return (
-    <Card key={routine.id} className="flex flex-col min-w-[300px]">
+    <Card key={routine.id} className="flex flex-1 flex-col min-w-[400px]">
       <CardHeader className="flex flex-row justify-between items-center gap-2">
         <CardTitle>{routine.title}</CardTitle>
         <DropdownMenu>

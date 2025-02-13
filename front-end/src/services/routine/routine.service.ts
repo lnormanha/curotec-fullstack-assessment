@@ -6,8 +6,10 @@ import { CreateRoutineDto } from "./types";
 export class RoutineService {
   static prefix = "/routines";
 
-  static async getAll() {
-    const { data } = await api.get<IRoutine[]>(this.prefix);
+  static async getAll(page: number, limit: number) {
+    const { data } = await api.get<IRoutine[]>(this.prefix, {
+      params: { page, limit },
+    });
     return data;
   }
 

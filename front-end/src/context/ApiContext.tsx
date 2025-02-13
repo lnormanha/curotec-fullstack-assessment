@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { RoutineService } from "../services/routine/routine.service";
 import { TaskService } from "../services/task/task.service";
@@ -9,6 +9,7 @@ import { CreateTaskDto, UpdateTaskDto } from "../services/task/types";
 interface ApiContextType {
   routines: IRoutine[];
   refetchRoutines: () => void;
+  fetchRoutines: (page: number, limit: number) => void;
   createRoutine: (data: CreateRoutineDto) => void;
   updateRoutine: (data: UpdateRoutineDto) => void;
   deleteRoutine: (id: number) => void;
@@ -28,9 +29,12 @@ export const useApi = () => {
 };
 
 export const ApiProvider = ({ children }: { children: React.ReactNode }) => {
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
+
   const { data: routines = [], refetch: refetchRoutines } = useQuery({
-    queryKey: ["routines"],
-    queryFn: () => RoutineService.getAll(),
+    queryKey: ["routines", page, limit],
+    queryFn: () => RoutineService.getAll(page, limit),
   });
 
   const deleteRoutineMutation = useMutation({
@@ -104,11 +108,18 @@ export const ApiProvider = ({ children }: { children: React.ReactNode }) => {
     createTaskMutation.mutate(data);
   };
 
+  const fetchRoutines = (page: number, limit: number) => {
+    setPage(page);
+    setLimit(limit);
+    refetchRoutines();
+  };
+
   return (
     <ApiContext.Provider
       value={{
         routines,
         refetchRoutines,
+        fetchRoutines,
         deleteRoutine,
         updateTask,
         deleteTask,

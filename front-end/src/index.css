@@ -18,26 +18,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  margin: 0;
+#root {
   display: flex;
-  min-width: 100vw;
+  flex: 1;
+  max-width: 1366px;
   min-height: 100vh;
   justify-content: center;
 }
 
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+body {
+  margin: 0;
+  display: flex;
+  flex: 1;
+  min-width: 100vw;
+  min-height: 100vh;
+  justify-content: center;
 }
 
 @layer base {

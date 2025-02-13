@@ -37,7 +37,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({
       />
       <Label htmlFor={`task-${task.id}`}>{task.title}</Label>
       <span className="text-sm text-gray-500">
-        {new Date(task.startTime).toLocaleTimeString()}
+        {new Date(task.startTime).toLocaleString()}
       </span>
 
       <DropdownMenu>

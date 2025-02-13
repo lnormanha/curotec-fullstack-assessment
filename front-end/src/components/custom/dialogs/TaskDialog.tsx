@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input";
 import { ITask } from "@/types/task.types";
 import { useApi } from "@/context/ApiContext";
 import { CreateTaskDto, UpdateTaskDto } from "@/services/task/types";
+import { toast } from "sonner";
 
 const taskFormSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -59,18 +60,21 @@ export function TaskDialog({
           ...data,
         };
         await updateTask(updateData);
+        toast.success("Task updated successfully");
       } else {
         const createData: CreateTaskDto = {
           ...data,
           routineId: routineId!,
         };
         await createTask(createData);
+        toast.success("Task created successfully");
       }
       refetchRoutines();
       onOpenChange(false);
       form.reset();
     } catch (error) {
-      console.error("Failed to create task:", error);
+      toast.error("Failed to save task");
+      console.error("Failed to create/update task:", error);
     }
   });
 

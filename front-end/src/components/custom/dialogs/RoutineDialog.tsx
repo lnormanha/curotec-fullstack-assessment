@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input";
 import { IRoutine } from "@/types/routine.types";
 import { useApi } from "@/context/ApiContext";
 import { CreateRoutineDto, UpdateRoutineDto } from "@/types/routine.types";
+import { toast } from "sonner";
 
 const routineFormSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -57,17 +58,20 @@ export function RoutineDialog({
           ...data,
         };
         await updateRoutine(updateData);
+        toast.success("Routine updated successfully");
       } else {
         const createData: CreateRoutineDto = {
           ...data,
         };
         await createRoutine(createData);
+        toast.success("Routine created successfully");
       }
       refetchRoutines();
       onOpenChange(false);
       form.reset();
     } catch (error) {
-      console.error("Failed to create routine:", error);
+      toast.error("Failed to save routine");
+      console.error("Failed to save routine:", error);
     }
   });
 

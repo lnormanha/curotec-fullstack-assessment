@@ -22,7 +22,9 @@ export const getRoutines = async (
   next: NextFunction
 ) => {
   try {
-    const routines = await routineService.findAll();
+    const page = parseInt(req.query.page as string, 10) || 1;
+    const limit = parseInt(req.query.limit as string, 10) || 10;
+    const routines = await routineService.findAll(page, limit);
     res.json(routines);
   } catch (error) {
     next(error);
