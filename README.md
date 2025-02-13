@@ -2,22 +2,22 @@
 
 ## Project Overview
 
-This project is a full-stack application for managing routines and tasks. It includes features such as caching, pagination, and toasts for user feedback.
+This project is a full-stack application for managing routines and tasks. It includes technical features such as caching, pagination, and toasts for user feedback.
 
 ## Architectural Decisions
 
 ### Backend
 
 - **Framework**: Express.js
-- **Database**: Prisma with SQLite
+- **Database**: Prisma with PostgreSQL
 - **Caching**: Cache-manager with Keyv for in-memory caching
 - **Error Handling**: Custom error middleware
 
 ### Frontend
 
 - **Framework**: React with Vite
-- **State Management**: React Query
-- **Styling**: TailwindCSS
+- **State Management**: Context API + React Query
+- **Styling**: TailwindCSS + shadcn/ui
 - **Toasts**: Sonner for user feedback
 
 ### Folder Structure
@@ -133,6 +133,17 @@ To add a task to a routine, click the "Add Task" button within the routine card 
    npm run docker:prod
    ```
 
+#### Scripts Explanation
+
+- **`npm run build`**: Build the backend application.
+- **`npm run start`**: Start the backend application.
+- **`npm run dev`**: Start the backend application in development mode.
+- **`npm run migrate`**: Run database migrations.
+- **`npm run generate`**: Generate Prisma client.
+- **`npm run init`**: Initialize the project.
+- **`npm run docker:dev`**: Start the backend application in development mode using Docker.
+- **`npm run docker:prod`**: Start the backend application in production mode using Docker.
+
 ### Frontend Setup
 
 1. **Create Environment Variables**:
@@ -157,21 +168,10 @@ To add a task to a routine, click the "Add Task" button within the routine card 
    npm run dev
    ```
 
-### Scripts Explanation
-
-- **`npm run build`**: Build the backend application.
-- **`npm run start`**: Start the backend application.
-- **`npm run dev`**: Start the backend application in development mode.
-- **`npm run migrate`**: Run database migrations.
-- **`npm run generate`**: Generate Prisma client.
-- **`npm run init`**: Initialize the project.
-- **`npm run docker:dev`**: Start the backend application in development mode using Docker.
-- **`npm run docker:prod`**: Start the backend application in production mode using Docker.
-
 ## Areas for Improvement and Future Enhancements
 
 - Add WebSocket for real-time data
-- Add Authentication so Users can have their own routines for their account.
+- Add Authentication so Users can have their own routines for their account
 - Deploy the back-end in a serverless architecture (Azure or AWS)
 - Deploy the front-end on Vercel
 - Unit Testing for API endpoints
