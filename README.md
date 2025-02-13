@@ -135,12 +135,7 @@ To add a task to a routine, click the "Add Task" button within the routine card 
 
 #### Scripts Explanation
 
-- **`npm run build`**: Build the backend application.
-- **`npm run start`**: Start the backend application.
-- **`npm run dev`**: Start the backend application in development mode.
-- **`npm run migrate`**: Run database migrations.
-- **`npm run generate`**: Generate Prisma client.
-- **`npm run init`**: Initialize the project.
+- **`npm run init`**: Initialize initial migrations script
 - **`npm run docker:dev`**: Start the backend application in development mode using Docker.
 - **`npm run docker:prod`**: Start the backend application in production mode using Docker.
 
