@@ -20,6 +20,40 @@ This project is a full-stack application for managing routines and tasks. It inc
 - **Styling**: TailwindCSS
 - **Toasts**: Sonner for user feedback
 
+### Folder Structure
+
+#### Backend
+
+The backend is organized into several key directories to separate concerns and improve maintainability.
+
+- **`docker/`**: Contains Docker configuration files for development and production environments.
+- **`prisma/`**: Includes Prisma schema and migration files for database management.
+- **`scripts/`**: Contains shell scripts for various tasks such as starting the development server.
+- **`src/`**: The main source code directory.
+  - **`controllers/`**: Handles incoming requests and returns responses to the client.
+  - **`dtos/`**: Data Transfer Objects for validating and transforming data.
+  - **`interfaces/`**: TypeScript interfaces for type checking.
+  - **`middleware/`**: Custom middleware functions for request handling.
+  - **`routes/`**: Defines the API endpoints and maps them to controller functions.
+  - **`services/`**: Business logic and data access layer.
+  - **`utils/`**: Utility functions and helpers.
+
+#### Frontend
+
+The frontend is structured to separate concerns and improve maintainability.
+
+- **`public/`**: Contains static assets like the favicon.
+- **`src/`**: The main source code directory.
+  - **`components/`**: Reusable UI components.
+    - **`custom/`**: Custom components specific to the application.
+      - **`cards/`**: Card components for displaying routines and tasks.
+      - **`dialogs/`**: Dialog components for creating and editing routines and tasks.
+    - **`ui/`**: General UI components like buttons, forms, and inputs.
+  - **`context/`**: React context for state management.
+  - **`lib/`**: Utility functions and helpers.
+  - **`services/`**: API service functions for communicating with the backend.
+  - **`types/`**: TypeScript types for type checking.
+
 ## Usage Examples
 
 ### Creating a Routine
@@ -132,8 +166,7 @@ To add a task to a routine, click the "Add Task" button within the routine card 
 ## Areas for Improvement and Future Enhancements
 
 - Add WebSocket for real-time data
-- Add Authentication so Users can have their own routines for their accounts.
-- Deploy the back-end in a serverless architecture (Azure or AWS).
-- Deploy the front-end on Vercel.
-- Unit Testing for API endpoints.
-- Detail page of a routine, showing it with more details.
+- Add Authentication so Users can have their own routines for their account.
+- Deploy the back-end in a serverless architecture (Azure or AWS)
+- Deploy the front-end on Vercel
+- Unit Testing for API endpoints
