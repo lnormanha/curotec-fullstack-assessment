@@ -135,19 +135,24 @@ To add a task to a routine, click the "Add Task" button within the routine card 
 
 ### Frontend Setup
 
-1. **Navigate to the `front-end` directory**:
+1. **Create Environment Variables**:
+
+   - Create `.env` file in the `front-end` directory.
+   - Follow the format in `front-end/.env.example` to set the necessary environment variables.
+
+2. **Navigate to the `front-end` directory**:
 
    ```sh
    cd front-end
    ```
 
-2. **Install dependencies**:
+3. **Install dependencies**:
 
    ```sh
    npm install
    ```
 
-3. **Start the development server**:
+4. **Start the development server**:
    ```sh
    npm run dev
    ```
