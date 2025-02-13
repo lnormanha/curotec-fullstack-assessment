@@ -16,7 +16,6 @@
     "docker:prod": "./scripts/prod.sh"
   },
   "dependencies": {
-    "@irrelon/cache-express": "^3.0.0",
     "@prisma/client": "^5.7.0",
     "cache-manager": "^6.4.0",
     "cors": "^2.8.5",
